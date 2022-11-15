@@ -1,3 +1,4 @@
+import 'package:any_task/my_tasks_page/my_tasks_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -55,7 +56,13 @@ class WelcomePage extends StatelessWidget {
             SizedBox(
               height: 65,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  print('Get Started Button Pressed');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyTasksPage()),
+                  );
+                },
                 child: Text(
                   'Get Started',
                   style: GoogleFonts.roboto(
