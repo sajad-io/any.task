@@ -51,21 +51,22 @@ class _MyTasksPageState extends State<MyTasksPage> {
           ),
         ),
       ),
-      body: Padding(
+      body: ListView.separated(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 19),
-        child: ListView(
-          children: [
-            for (int i = 0; i < widget.myTasks.length; i++)
-              TaskListTileWidget(
-                task: widget.myTasks[i],
-                onCheckboxChanged: (isChecked) {
-                  setState(() {
-                    widget.myTasks[i].isDone = isChecked!;
-                  });
-                },
-              ),
-          ],
-        ),
+        itemCount: widget.myTasks.length,
+        itemBuilder: (BuildContext context, int index) {
+          return TaskListTileWidget(
+            task: widget.myTasks[index],
+            onCheckboxChanged: (isChecked) {
+              setState(() {
+                widget.myTasks[index].isDone = isChecked!;
+              });
+            },
+          );
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return SizedBox(height: 12);
+        },
       ),
     );
   }

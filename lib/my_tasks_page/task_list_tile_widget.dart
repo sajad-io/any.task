@@ -10,13 +10,12 @@ class TaskListTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return // List Tile # 1
-        Container(
+    return Container(
       width: double.infinity,
       height: 56,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(6)),
-        color: Color(0xFFFFFFFF),
+        color: task.isDone ? Color(0xFF000000).withOpacity(0.1) : Color(0xFFFFFFFF),
       ),
       child: Row(
         children: [
@@ -25,7 +24,9 @@ class TaskListTileWidget extends StatelessWidget {
             width: 48,
             height: double.infinity,
             decoration: BoxDecoration(
-              color: Color(0xFF00B670).withOpacity(0.38),
+              color: task.isDone
+                  ? Color(0xFF000000).withOpacity(0.1)
+                  : Color(0xFF00B670).withOpacity(0.38),
               borderRadius: BorderRadius.all(Radius.circular(6)),
             ),
             child: Column(
@@ -62,6 +63,9 @@ class TaskListTileWidget extends StatelessWidget {
                   style: GoogleFonts.commissioner(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
+                    color: Color(0xFF000000).withOpacity(task.isDone ? 0.5 : 1),
+                    decoration:
+                        task.isDone ? TextDecoration.lineThrough : TextDecoration.none,
                   ),
                 ),
                 SizedBox(height: 4),
