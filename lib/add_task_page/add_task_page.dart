@@ -85,6 +85,73 @@ class AddTaskPage extends StatelessWidget {
               ),
             ),
             // time section
+            SizedBox(height: 30),
+            Container(
+              width: double.infinity,
+              height: 187,
+              color: Color(0xFFFFFFFF),
+              padding: EdgeInsets.symmetric(horizontal: 23, vertical: 18),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      // No specific time
+                      Text(
+                        'No specific time',
+                        style: GoogleFonts.roboto(
+                          fontSize: 18,
+                          color: Color(0xFF33364B),
+                        ),
+                      ),
+                      Spacer(),
+                      Checkbox(value: true, onChanged: (value) {}),
+                    ],
+                  ),
+                  SizedBox(height: 25),
+                  // start time
+                  Row(
+                    children: [
+                      Text(
+                        'Start time',
+                        style: GoogleFonts.roboto(
+                          fontSize: 17,
+                          color: Color(0xFF9BA7B2),
+                        ),
+                      ),
+                      Spacer(),
+                      Text(
+                        '7:00 AM',
+                        style: GoogleFonts.roboto(
+                          fontSize: 22,
+                          color: Color(0xFF33364B),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 22),
+                  // end time
+                  Row(
+                    children: [
+                      Text(
+                        'End time',
+                        style: GoogleFonts.roboto(
+                          fontSize: 17,
+                          color: Color(0xFF9BA7B2),
+                        ),
+                      ),
+                      Spacer(),
+                      Text(
+                        '9:00 AM',
+                        style: GoogleFonts.roboto(
+                          fontSize: 22,
+                          color: Color(0xFF33364B),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
