@@ -1,3 +1,4 @@
+import 'package:any_task/my_tasks_page/my_tasks_page.dart';
 import 'package:flutter/material.dart';
 
 import 'welcome_page/welcome_page.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: WelcomePage(),
+      home: MyTasksPage(),
     );
   }
 }

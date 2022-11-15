@@ -1,7 +1,33 @@
+import 'package:any_task/my_tasks_page/task_list_tile_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import '../models/task_model.dart';
 
 class MyTasksPage extends StatefulWidget {
-  const MyTasksPage({super.key});
+  MyTasksPage({super.key});
+
+  // dummy task data
+  final List<Task> myTasks = [
+    Task(
+      title: 'Study Flutter with Sajad :)',
+      date: DateTime(2022, 10, 12),
+      startTime: TimeOfDay(hour: 10, minute: 30),
+      endTime: TimeOfDay(hour: 11, minute: 30),
+    ),
+    Task(
+      title: 'Meeting with Client',
+      date: DateTime(2022, 11, 12),
+      startTime: TimeOfDay(hour: 14, minute: 30),
+      endTime: TimeOfDay(hour: 15, minute: 0),
+    ),
+    Task(
+      title: 'Daily Project Collab',
+      date: DateTime(2022, 12, 13),
+      startTime: TimeOfDay(hour: 9, minute: 30),
+      endTime: TimeOfDay(hour: 17, minute: 45),
+    ),
+  ];
 
   @override
   State<MyTasksPage> createState() => _MyTasksPageState();
@@ -11,8 +37,27 @@ class _MyTasksPageState extends State<MyTasksPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('My tasks page'),
+      backgroundColor: Color(0xFFF5F5F5),
+      appBar: AppBar(
+        backgroundColor: Color(0xFFFFFFFF),
+        elevation: 1,
+        title: Text(
+          'My Tasks',
+          style: GoogleFonts.poppins(
+            color: Color(0xFF33364B),
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 19),
+        child: ListView(
+          children: [
+            for (int i = 0; i < widget.myTasks.length; i++)
+              TaskListTileWidget(widget.myTasks[i]),
+          ],
+        ),
       ),
     );
   }

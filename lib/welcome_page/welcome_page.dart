@@ -60,7 +60,7 @@ class WelcomePage extends StatelessWidget {
                   print('Get Started Button Pressed');
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const MyTasksPage()),
+                    MaterialPageRoute(builder: (context) => MyTasksPage()),
                   );
                 },
                 child: Text(
