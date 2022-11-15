@@ -55,6 +55,7 @@ class TaskListTileWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // title. example: Study Flutter with Sajad :)
                 Text(
                   task.title,
                   style: GoogleFonts.commissioner(
@@ -63,9 +64,9 @@ class TaskListTileWidget extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 4),
+                // start time - end time. example: '12:30 AM — 00:30 PM',
                 Text(
-                  // '12:30 AM — 00:30 PM',
-                  task.date.toString(),
+                  task.startTime.format(context) + ' — ' + task.endTime.format(context),
                   style: GoogleFonts.commissioner(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
