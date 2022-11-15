@@ -1,4 +1,5 @@
 import 'package:any_task/my_tasks_page/task_list_tile_widget.dart';
+import 'package:any_task/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -40,18 +41,7 @@ class _MyTasksPageState extends State<MyTasksPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF5F5F5),
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFFFFFF),
-        elevation: 1,
-        title: Text(
-          'My Tasks',
-          style: GoogleFonts.poppins(
-            color: Color(0xFF33364B),
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      appBar: MyAppbar(title: 'My Tasks', hasBackButton: false),
       body: ListView.separated(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 19),
         itemCount: myTasks.length,
