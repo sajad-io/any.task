@@ -5,7 +5,8 @@ import 'package:intl/intl.dart';
 
 class TaskListTileWidget extends StatelessWidget {
   final Task task;
-  const TaskListTileWidget(this.task);
+  final Function(bool?) onCheckboxChanged;
+  const TaskListTileWidget({required this.task, required this.onCheckboxChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +77,7 @@ class TaskListTileWidget extends StatelessWidget {
               ],
             ),
           ),
-          Checkbox(value: false, onChanged: (value) {}),
+          Checkbox(value: task.isDone, onChanged: (value) => onCheckboxChanged(value)),
         ],
       ),
     );

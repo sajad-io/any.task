@@ -14,6 +14,7 @@ class MyTasksPage extends StatefulWidget {
       date: DateTime(2022, 10, 12),
       startTime: TimeOfDay(hour: 10, minute: 30),
       endTime: TimeOfDay(hour: 11, minute: 30),
+      isDone: true,
     ),
     Task(
       title: 'Meeting with Client',
@@ -55,7 +56,14 @@ class _MyTasksPageState extends State<MyTasksPage> {
         child: ListView(
           children: [
             for (int i = 0; i < widget.myTasks.length; i++)
-              TaskListTileWidget(widget.myTasks[i]),
+              TaskListTileWidget(
+                task: widget.myTasks[i],
+                onCheckboxChanged: (isChecked) {
+                  setState(() {
+                    widget.myTasks[i].isDone = isChecked!;
+                  });
+                },
+              ),
           ],
         ),
       ),
